@@ -1,0 +1,7 @@
+services:
+  kachra:
+    build:
+      context: .
+    pull_policy: build
+    ports:
+      - ${PORT}:80
