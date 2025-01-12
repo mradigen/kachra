@@ -1,38 +1,41 @@
-# sv
+# kachra
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Stupidly simple pastebin service.
 
-## Creating a project
+## Architecture
 
-If you're seeing this, you've probably already done this step. Congrats!
+A static webpage uploads directly to minio (or any S3 storage bucket).
 
-```bash
-# create a new project in the current directory
-npx sv create
+See [balti](https://github.com/mradigen/balti) for more details.
 
-# create a new project in my-app
-npx sv create my-app
-```
+Uses [chota](https://github.com/mradigen/chota) to shorten long S3 URLs.
 
-## Developing
+## Self-host
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone the repository:
 
-```bash
-npm run dev
+1. Clone the repository:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```sh
+   git clone https://github.com/mradigen/balti
+   cd balti
+   ```
 
-## Building
+2. Copy the `.env.example` file and edit it as needed:
 
-To create a production version of your app:
+   ```sh
+   cp .env.example .env
+   ```
 
-```bash
-npm run build
-```
+3. Run the compose stack:
+   ```sh
+   docker compose up -d
+   ```
 
-You can preview the production build with `npm run preview`.
+## Testing
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+WIP
+
+## Contributing
+
+Contributions are highly encouraged! Please open an issue or submit a pull request with your changes.
